@@ -14,7 +14,7 @@ export default function DiagnosisPage() {
     setAiLoading(true);
 
     try {
-      const res = await fetch("http://localhost:5173/api/predict", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ imageUrl }) });
+      const res = await fetch("/api/predict", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ imageUrl }) });
       const data = await res.json();
       if (!res.ok) { setPageMessage(data.error || "AI request failed"); setAiLoading(false); return; }
 
